@@ -1,0 +1,105 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(168, 162, 253);
+}
+
+
+header {
+    padding: 20px 0;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: rgb(14, 1, 131);
+    text-align: center;
+    color: white;
+}
+
+.main {
+    padding: 20px;
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 20px;
+}
+
+
+tr {
+    height: 30px;
+    color: white;
+}
+
+.odd {
+    background-color: rgb(25, 0, 168);
+}
+
+.even {
+    background-color: rgb(8, 0, 78);
+}
+
+tr:hover {
+    background-color: rgb(4, 0, 34);
+}
+
+#converter {
+    margin-top: 20px;
+    padding: 20px;
+    background-color:rgb(14, 1, 131);
+    border: 2px solid rgb(11, 0, 172);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    text-align: center;
+}
+
+#converter h2 {
+    font-size: 2rem; 
+    font-weight: bold;
+}
+
+#converter label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#converter input,
+#converter select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(55, 0, 255);
+    border-radius: 5px;
+    background-color: rgb(25, 0, 168);
+    color: white;
+}
+
+#converter button {
+    background-color: rgb(14, 1, 131);
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid rgb(25, 0, 255);
+    border-radius: 5px;
+}
+
+#converter button:hover {
+    background-color: rgb(5, 0, 80);
+}
+
+#converter #result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#converter select:hover,
+#converter input[type="number"]:hover {
+    background-color: rgb(8, 0, 78);
+}

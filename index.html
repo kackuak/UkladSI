@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Układ SI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        Układ SI
+    </header>
+    <div class="main">
+        <table class="tabela">
+            <tr class="odd">
+                <td>
+                    tera</td>
+                <td>
+                    T</td>
+                <td>
+                    1000 000 000 000 = 10<sup>12</sup></td>
+                <td>
+                    1 TW = 1000 000 000 000 W</td>
+            </tr>
+            <tr class="even">
+                <td>
+                    giga</td>
+                <td>
+                    G</td>
+                <td>
+                    1000 000 000 = 10<sup>9</sup></td>
+                <td>
+                    1 GW = 1000 000 000 W</td>
+            </tr>
+            <tr class="odd">
+                <td>
+                    mega</td>
+                <td>
+                    M</td>
+                <td>
+                    1000 000 = 10<sup>6</sup></td>
+                <td>
+                    1 MW = 1000 000 W</td>
+            </tr>
+            <tr class="even">
+                <td>
+                    kilo</td>
+                <td>
+                    k</td>
+                <td>
+                    1000 = 10<sup>3</sup></td>
+                <td>
+                    1 kW = 1000 W</td>
+            </tr>
+            <tr class="odd">
+                <td>
+                    hekto</td>
+                <td>
+                    h</td>
+                <td>
+                    100 = 10<sup>2</sup></td>
+                <td>
+                    1 hl = 100 l</td>
+            </tr>
+            <tr class="even">
+                <td>
+                    deka</td>
+                <td>
+                    da</td>
+                <td>
+                    10</td>
+                <td>
+                    1 daN = 10 N</td>
+            </tr>
+            <tr class="odd">
+                <td>
+                    decy</td>
+                <td>
+                    d</td>
+                <td>
+                    0,1 =10<sup>-1</sup></td>
+                <td>
+                    1 dm = 0,1 m</td>
+            </tr>
+            <tr class="even">
+                <td>
+                    centy</td>
+                <td>
+                    c</td>
+                <td>
+                    0,01=10<sup>-2</sup></td>
+                <td>
+                    1 cm = 0,01 m</td>
+            </tr>
+            <tr class="odd">
+                <td>
+                    mili</td>
+                <td>
+                    m</td>
+                <td>
+                    0,001=10<sup>-3</sup></td>
+                <td>
+                    1 mm = 0,001 m</td>
+            </tr>
+            <tr class="even">
+                <td>
+                    mikro</td>
+                <td>
+                    ?</td>
+                <td>
+                    0,000 001=10<sup>-6</sup></td>
+                <td>
+                    1 ?m = 0,000 001 m</td>
+            </tr>
+            <tr class="odd">
+                <td>
+                    nano</td>
+                <td>
+                    n</td>
+                <td>
+                    0,000 000 001=10<sup>-9</sup></td>
+                <td>
+                    1 nm = 0,000 000 001 m</td>
+            </tr>
+            <tr class="even">
+                <td>
+                    piko</td>
+                <td>
+                    p</td>
+                <td>
+                    0,000 000 000 001=10<sup>-12</sup></td>
+                <td>
+                    1 pm = 0,000 000 000 001 m</td>
+            </tr>
+            <tr class="odd">
+                <td>
+                    femto</td>
+                <td>
+                    f</td>
+                <td>
+                    0,000 000 000 000 001=10<sup>-15</sup></td>
+                <td>
+                    1 fm = 0,000 000 000 000 001 m</td>
+            </tr>
+            <tr class="even">
+                <td>
+                    atto</td>
+                <td>
+                    a</td>
+                <td>
+                    0,000 000 000 000 000 001=10<sup>-18</sup></td>
+                <td>
+                    1 am = 0,000 000 000 000 000 001 m</td>
+            </tr>
+    </table>
+    </div>
+    <div id="converter">
+        <h2>Konwerter Jednostek</h2>
+        <label for="unitFrom">Wybierz jednostkę wejściową:</label>
+        <select id="unitFrom"></select>
+        <label for="value">Podaj wartość:</label>
+        <input type="number" id="value">
+        <label for="unitTo">Wybierz jednostkę docelową:</label>
+        <select id="unitTo"></select>
+        <button onclick="convert()">Konwertuj</button>
+        <div id="result"></div>
+    </div>
+</body>
+<script>
+    const units = [
+    "tera (T)", "giga (G)", "mega (M)", "kilo (k)", "hekto (h)",
+    "deka (da)", "decy (d)", "centy (c)", "mili (m)", "mikro (μ)",
+    "nano (n)", "piko (p)", "femto (f)", "atto (a)"
+];
+
+const unitSelects = document.querySelectorAll("select");
+
+for (const select of unitSelects) {
+    for (const unit of units) {
+        const option = document.createElement("option");
+        option.text = unit;
+        select.add(option);
+    }
+}
+
+function convert() {
+    const unitFrom = document.getElementById("unitFrom").value;
+    const unitTo = document.getElementById("unitTo").value;
+    const value = parseFloat(document.getElementById("value").value);
+
+    const conversions = {
+        "tera (T)": 1e12,
+        "giga (G)": 1e9,
+        "mega (M)": 1e6,
+        "kilo (k)": 1e3,
+        "hekto (h)": 1e2,
+        "deka (da)": 1e1,
+        "decy (d)": 1e-1,
+        "centy (c)": 1e-2,
+        "mili (m)": 1e-3,
+        "mikro (μ)": 1e-6,
+        "nano (n)": 1e-9,
+        "piko (p)": 1e-12,
+        "femto (f)": 1e-15,
+        "atto (a)": 1e-18
+    };
+
+    const result = value * conversions[unitFrom] / conversions[unitTo];
+    document.getElementById("result").textContent = `${value} ${unitFrom} = ${result} ${unitTo}`;
+}
+
+</script>
+</html>
